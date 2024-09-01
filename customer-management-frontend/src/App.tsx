@@ -1,25 +1,32 @@
-// src/App.tsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Login from './pages/Login';
-import CustomerList from './pages/CustomerList';
-import AddCustomer from './pages/AddCustomer';
-import ErrorPage from './pages/ErrorPage';
-import ProtectedRoute from './components/ProtectedRoute';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import ErrorPage from "./pages/ErrorPage";
+import ProtectedRoute from "./components/ProtectedRoute"; // A component to handle protected routes
 
-const App: React.FC = () => {
+function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/customers" element={<ProtectedRoute><CustomerList /></ProtectedRoute>} />
-        <Route path="/add-customer" element={<ProtectedRoute><AddCustomer /></ProtectedRoute>} />
-        <Route path="*" element={<ErrorPage />} />
+        {/* Public Routes */}
+        <Route path="/" element={<LoginPage />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Error Page */}
+        <Route path="/error" element={<ErrorPage />} />
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
