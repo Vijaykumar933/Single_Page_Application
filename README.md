@@ -1,6 +1,10 @@
+Here is the updated `README.md` file with all the requested changes:
+
+---
+
 ## Customer Management SPA
 
-This repository contains the code for a Single Page Application (SPA) that allows users to securely log in, manage customer data, and handle various CRUD operations. The application is built with React, TypeScript, on the frontend and Django on the backend.
+This repository contains the code for a Single Page Application (SPA) that allows users to securely log in, manage customer data, and handle various CRUD operations. The application is built with React and TypeScript on the frontend and Django on the backend.
 
 ### **Detailed Instructions on How to Run the Application**
 
@@ -33,7 +37,7 @@ This repository contains the code for a Single Page Application (SPA) that allow
 
 2. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/customer-management-spa.git
+   git clone https://github.com/Vijaykumar933/Single_Page_Application.git
    cd customer_management
    ```
 
@@ -59,6 +63,37 @@ This repository contains the code for a Single Page Application (SPA) that allow
    ```
    The backend will be available at [http://localhost:8000](http://localhost:8000).
 
+### **Using Docker to Run the Application**
+
+1. **Ensure Docker is installed** on your machine. If not, download and install Docker from [here](https://www.docker.com/products/docker-desktop).
+
+2. **Build Docker Images**:
+
+   Navigate to the root directory of the project (`Single_Page_Application/`):
+
+   ```bash
+   docker-compose build
+   ```
+
+3. **Start the Containers**:
+
+   To start both the frontend and backend services:
+
+   ```bash
+   docker-compose up
+   ```
+
+   - **Frontend**: Navigate to [http://localhost:3000](http://localhost:3000) to access the React frontend.
+   - **Backend**: The Django API will be accessible at [http://localhost:8000](http://localhost:8000).
+
+4. **Stop the Containers**:
+
+   To stop all services, press `Ctrl+C` in the terminal or run:
+
+   ```bash
+   docker-compose down
+   ```
+
 ### **Explanation of the Design Patterns Used**
 
 - **MVC Pattern (Model-View-Controller)**:
@@ -77,7 +112,7 @@ This repository contains the code for a Single Page Application (SPA) that allow
 
 ### **Diagram Illustrating the Application’s Architecture**
 
-![alt text](image-1.png)
+![Application Architecture](image-1.png)
 
 ### **Assumptions and Decisions Made**
 
@@ -91,8 +126,7 @@ This repository contains the code for a Single Page Application (SPA) that allow
   - Material UI is used for a professional and responsive design. Components are styled to ensure a good user experience across different devices.
 
 - **Database Choice**:
-  - SQLite is used as the database for Django due to its robustness and support for queries.
+  - SQLite is used as the database for Django due to its simplicity and ease of use in development.
 
 - **Deployment**:
   - The application is containerized using Docker for ease of deployment and consistency across different environments.
-

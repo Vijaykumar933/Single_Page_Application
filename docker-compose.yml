@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build:
+      context: ./customer-management-frontend
+      dockerfile: Dockerfile
+    container_name: customer-management-frontend
+    ports:
+      - "3000:80"
+    # Removed depends_on
+
+  backend:
+    build:
+      context: ./customer_management
+      dockerfile: Dockerfile
+    container_name: customer_management
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=customer_management.settings
+    volumes:
+      - ./customer_management:/app
+    # Removed depends_on
